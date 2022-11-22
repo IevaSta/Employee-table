@@ -1,15 +1,19 @@
-import { addNewEmployee_const, sortEmployees_const } from "../Constants/dataConstants";
+import { addNewEmployee_const, loadData_const, sortEmployeesByAge_const } from "../Constants/dataConstants";
 
-function Data_reducer(state, action) {
-    let newState = [...state];
+function data_reducer(state, action) {
+    let newState = state ? [...state] : null;
 
     switch (action.type) {
         case addNewEmployee_const:
             newState = [...newState, action.payload]
             break;
 
-        case sortEmployees_const:
+        case sortEmployeesByAge_const:
             newState.sort((a, b) => a.age - b.age * 1)
+            break;
+
+        case loadData_const:
+            newState = JSON.parse(localStorage.getItem('data')) || [];
             break;
 
 
@@ -19,4 +23,4 @@ function Data_reducer(state, action) {
     return newState;
 }
 
-export default Data_reducer
+export default data_reducer;
