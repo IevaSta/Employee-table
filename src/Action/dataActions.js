@@ -20,8 +20,9 @@ export function loadData_action() {
     }
 }
 
-export function checkAll_action() {
+export function checkAll_action(isCheck) {
     return {
-        type: checkAll_const
+        type: checkAll_const,
+        payload: isCheck
     }
 }

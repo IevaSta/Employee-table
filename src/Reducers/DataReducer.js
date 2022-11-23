@@ -18,7 +18,7 @@ function data_reducer(state, action) {
             break;
 
         case checkAll_const:
-            newState = newState?.map(e => ({ ...e, check: true }));
+            newState = newState?.map(e => ({ ...e, check: action.payload }));
             break;
 
 

@@ -13,7 +13,7 @@ function TableHead() {
   const { dispachData } = useContext(DataContext);
 
   useEffect(() => {
-    dispachData(checkAll_action());
+    dispachData(checkAll_action(isCheck));
   }, [isCheck, dispachData]);
 
   return (
