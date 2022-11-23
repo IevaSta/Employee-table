@@ -1,4 +1,4 @@
-import { addNewEmployee_const, loadData_const, sortEmployeesByAge_const } from "../Constants/dataConstants";
+import { addNewEmployee_const, checkAll_const, loadData_const, sortEmployeesByAge_const } from "../Constants/dataConstants";
 
 export function addNewEmployee_action(newData) {
     return {
@@ -17,5 +17,11 @@ export function sortEmployessByAge_action() {
 export function loadData_action() {
     return {
         type: loadData_const
+    }
+}
+
+export function checkAll_action() {
+    return {
+        type: checkAll_const
     }
 }

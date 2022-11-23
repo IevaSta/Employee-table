@@ -1,4 +1,4 @@
-import { addNewEmployee_const, loadData_const, sortEmployeesByAge_const } from "../Constants/dataConstants";
+import { addNewEmployee_const, checkAll_const, loadData_const, sortEmployeesByAge_const } from "../Constants/dataConstants";
 
 function data_reducer(state, action) {
     let newState = state ? [...state] : null;
@@ -15,6 +15,10 @@ function data_reducer(state, action) {
 
         case loadData_const:
             newState = JSON.parse(localStorage.getItem('data')) || [];
+            break;
+
+        case checkAll_const:
+            newState = newState?.map(e => ({ ...e, check: true }));
             break;
 
 
