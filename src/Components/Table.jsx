@@ -1,5 +1,15 @@
+import TableBody from "./TableBody";
+import TableHead from "./TableHead";
+
 function Table() {
-  return <></>;
+  return (
+    <>
+      <table>
+        <TableHead />
+        <TableBody />
+      </table>
+    </>
+  );
 }
 
 export default Table;

@@ -21,8 +21,8 @@ function App() {
         dispachData,
       }}
     >
-      <Table />
       <NewData />
+      <Table />
     </DataContext.Provider>
   );
 }
