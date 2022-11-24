@@ -1,12 +1,9 @@
 import { useContext, useEffect } from "react";
-import { useState } from "react";
 import { checkAll_action } from "../Action/dataActions";
 import DataContext from "./DataContext";
 
 function TableHead() {
-  const [isCheck, setIsCheck] = useState(false);
-
-  const { dispachData, data } = useContext(DataContext);
+  const { dispachData, data, isCheck, setIsCheck } = useContext(DataContext);
 
   const check = (e) => {
     const c = e.target.checked;
@@ -16,13 +13,12 @@ function TableHead() {
   useEffect(() => {
     if (data) {
       const checkData = [...data].filter(e => !e.deleted)
-      if (data.length && !checkData.some(e => !e.checked)) {
+      if (data.length && !checkData.some(e => !e.check)) {
         setIsCheck(true);
       }
     }
 
-
-  }, [data]);
+  }, [data, setIsCheck]);
 
   return (
     <thead>

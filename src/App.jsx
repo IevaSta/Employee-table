@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useState } from "react";
 import { useReducer } from "react";
 import { loadData_action } from "./Action/dataActions";
 import "./App.scss";
@@ -9,6 +10,7 @@ import data_reducer from "./Reducers/dataReducer";
 
 function App() {
   const [data, dispachData] = useReducer(data_reducer, null);
+  const [isCheck, setIsCheck] = useState(false);
 
   useEffect(() => {
     dispachData(loadData_action());
@@ -19,6 +21,8 @@ function App() {
       value={{
         data,
         dispachData,
+        isCheck,
+        setIsCheck
       }}
     >
       <NewData />
