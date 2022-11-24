@@ -3,12 +3,15 @@ import { checkEmployee_action } from "../Action/dataActions";
 import DataContext from "./DataContext";
 
 function TableBody() {
-  const { data, dispachData } = useContext(DataContext);
+  const { data, dispachData, setIsCheck } = useContext(DataContext);
 
   const check = (id, e) => {
     const c = e.target.checked;
     dispachData(checkEmployee_action(id, c));
 
+    if (!c) {
+      setIsCheck(c)
+    }
 
   }
 
