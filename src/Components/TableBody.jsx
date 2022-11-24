@@ -11,11 +11,7 @@ function TableBody() {
           <tr key={e.id}>
             <td>
               {" "}
-              <input
-                type="checkbox"
-                onChange={() => {}}
-                checked={e.check}
-              ></input>
+              <input type="checkbox" onChange={(e) => { }} checked={e.check}></input>
             </td>
             <td>{e.name}</td>
             <td>{e.age}</td>
