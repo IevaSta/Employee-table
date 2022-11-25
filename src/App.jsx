@@ -17,17 +17,27 @@ function App() {
   }, []);
 
   return (
-    <DataContext.Provider
-      value={{
-        data,
-        dispachData,
-        isCheck,
-        setIsCheck
-      }}
-    >
-      <NewData />
-      <Table />
-    </DataContext.Provider>
+
+    <div className='container'>
+      <div className='bin'>
+        <DataContext.Provider
+          value={{
+            data,
+            dispachData,
+            isCheck,
+            setIsCheck
+          }}
+        >
+          <div className='card'>
+            <NewData />
+            <Table />
+
+          </div>
+        </DataContext.Provider>
+
+      </div>
+    </div>
+
   );
 }
 

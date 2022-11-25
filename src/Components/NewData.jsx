@@ -30,18 +30,23 @@ function NewData() {
   };
 
   return (
-    <div>
-      <input ref={nameRef} type="text" placeholder="Name" />
+    <div className="card">
+      <div className="top">
+        <h2>employee table</h2>
 
-      <input ref={ageRef} type="number" placeholder="Age" />
+        <div className="form">
+          <input ref={nameRef} type="text" placeholder="Name" />
+          <input ref={ageRef} type="number" placeholder="Age" />
+          <select ref={selectRef} name="" id="">
+            <option value="">Choose city</option>
+            <option>Vilnius</option>
+            <option>Kaunas</option>
+            <option>Klaipėda</option>
+          </select>
+          <button className='black' onClick={addNewEmployee}>Add employee</button>
+        </div>
 
-      <select ref={selectRef} name="" id="">
-        <option value="">Choose city</option>
-        <option>Vilnius</option>
-        <option>Kaunas</option>
-        <option>Klaipėda</option>
-      </select>
-      <button onClick={addNewEmployee}>Add employee</button>
+      </div>
     </div>
   );
 }

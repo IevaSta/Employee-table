@@ -21,7 +21,7 @@ function TableHead() {
   }, [data, setIsCheck]);
 
   return (
-    <thead>
+    <thead className="thead">
       <tr>
         <th>
           <input type="checkbox" onChange={e => { check(e); dispachData(checkAll_action(e.target.checked)) }} checked={isCheck}></input>
