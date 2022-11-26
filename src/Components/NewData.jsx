@@ -35,8 +35,8 @@ function NewData() {
         <h2>employee table</h2>
 
         <div className="form">
-          <input ref={nameRef} type="text" placeholder="Name" />
-          <input ref={ageRef} type="number" placeholder="Age" />
+          <input ref={nameRef} type="text" placeholder="Name" onKeyUp={e => e.key === 'Enter' && addNewEmployee()} />
+          <input ref={ageRef} type="number" placeholder="Age" onKeyUp={e => e.key === 'Enter' && addNewEmployee()} />
           <select ref={selectRef} name="" id="">
             <option value="">Choose city</option>
             <option>Vilnius</option>
