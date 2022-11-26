@@ -1,10 +1,12 @@
 import { addNewEmployee_const, checkAll_const, checkEmployee_const, loadData_const, sortEmployeesByAge_const } from "../Constants/dataConstants";
 
 function data_reducer(state, action) {
+
     let newState = state ? [...state] : null;
 
     switch (action.type) {
         case addNewEmployee_const:
+            newState = newState?.map(e => ({ ...e, check: false }));
             newState = [...newState, action.payload];
             localStorage.setItem('data', JSON.stringify(newState));
             break;
