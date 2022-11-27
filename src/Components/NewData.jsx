@@ -21,7 +21,7 @@ function NewData() {
       dispachData(
         addNewEmployee_action({
           id: getId(),
-          name: name[0].toUpperCase() + name.slice(1),
+          name: name[0].toUpperCase() + name.slice(1).toLowerCase(),
           age,
           city,
           deleted: false,

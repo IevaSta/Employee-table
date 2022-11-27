@@ -33,7 +33,7 @@ function TableHead() {
         <th>Name</th>
         <th>Age</th>
         <th>City</th>
-        <th><button className="yellow" onClick={() => dispachData(deleteAllSelectedEmployees_action())}>Delete All</button></th>
+        <th><button className="yellow" onClick={() => dispachData(deleteAllSelectedEmployees_action())}>Delete selected items</button></th>
       </tr>
     </thead>
   );
