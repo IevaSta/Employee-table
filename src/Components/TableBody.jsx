@@ -23,7 +23,10 @@ function TableBody() {
           <td>{e.name}</td>
           <td>{e.age}</td>
           <td>{e.city}</td>
-          <td><button onClick={() => dispachData(deleteEmployee_action(e.id))}>Delete</button></td>
+          <td>
+            <button className="green">Edit</button>
+            <button className="yellow" onClick={() => dispachData(deleteEmployee_action(e.id))}>Delete</button>
+          </td>
         </tr>
       ))}
     </tbody>
