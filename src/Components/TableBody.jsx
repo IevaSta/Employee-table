@@ -17,10 +17,7 @@ function TableBody() {
 
   return (
     <tbody className="tbody">
-
-      {/* GRISK CIA SU DELETE MYGTUKU SUSITVARKYTI */}
-
-      {data?.map((e) => !e.delete && (
+      {data?.map((e) => !e.deleted && (
         <tr key={e.id}>
           <td><input type="checkbox" onChange={event => check(e.id, event)} checked={e.check}></input></td>
           <td>{e.name}</td>

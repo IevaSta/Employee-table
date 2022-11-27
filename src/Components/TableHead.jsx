@@ -16,9 +16,9 @@ function TableHead() {
       if (checkData.length) {
         if (!checkData.some(e => !e.check)) {
           setIsCheck(true);
-        } else {
-          setIsCheck(false);
         }
+      } else {
+        setIsCheck(false);
       }
     }
 
