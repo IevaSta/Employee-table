@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useContext, useState } from "react";
-import { cancelEdit_action, checkEmployee_action, deleteEmployee_action, focusEmployee_action } from "../Action/dataActions";
+import { cancelEdit_action, checkEmployee_action, deleteEmployee_action, focusEmployee_action, saveEdit_action } from "../Action/dataActions";
 import DataContext from "./DataContext";
 
 function TableBody() {
@@ -42,7 +42,7 @@ function TableBody() {
           <option>Klaipėda</option>
         </select></td>
         <td>
-          <button className="green" onClick={() => { }}>Save</button>
+          <button className="green" onClick={() => dispachData(saveEdit_action(e.id, { name, age, city }))}>Save</button>
           <button className="yellow" onClick={() => dispachData(cancelEdit_action())}>Cancel</button>
         </td>
       </tr>

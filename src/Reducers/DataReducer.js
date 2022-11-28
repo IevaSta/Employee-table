@@ -1,4 +1,4 @@
-import { addNewEmployee_const, cancelEdit_const, checkAll_const, checkEmployee_const, deleteAllSelectedEmployees_const, deleteEmployee_const, focusEmployee_const, loadData_const, sortEmployeesByAge_const } from "../Constants/dataConstants";
+import { addNewEmployee_const, cancelEdit_const, checkAll_const, checkEmployee_const, deleteAllSelectedEmployees_const, deleteEmployee_const, focusEmployee_const, loadData_const, saveEdit_const, sortEmployeesByAge_const } from "../Constants/dataConstants";
 import updateDataInLocalStorage from "../Functions/updateDataInLocalStorage";
 
 function data_reducer(state, action) {
@@ -45,6 +45,10 @@ function data_reducer(state, action) {
 
         case cancelEdit_const:
             newState = newState?.map(e => ({ ...e, focus: false }));
+            break;
+
+        case saveEdit_const:
+            newState = newState?.map(e => e.id === action.payload.id ? { ...e, ...action.payload.data, focus: false } : { ...e })
             break;
 
 

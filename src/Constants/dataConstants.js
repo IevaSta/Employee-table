@@ -7,3 +7,4 @@ export const deleteAllSelectedEmployees_const = 'deleteAllSelectedEmployees_cons
 export const deleteEmployee_const = 'deleteEmployee_const';
 export const focusEmployee_const = 'focusEmployee_const';
 export const cancelEdit_const = 'cancelEdit_const';
+export const saveEdit_const = 'saveEdit_const';
