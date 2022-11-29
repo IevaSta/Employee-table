@@ -6,6 +6,7 @@ import "./App.scss";
 import DataContext from "./Components/DataContext";
 import NewData from "./Components/NewData";
 import Table from "./Components/Table";
+import TablePagesList from "./Components/TablePagesList";
 import data_reducer from "./Reducers/dataReducer";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <div className='card'>
             <NewData />
             <Table />
+            <TablePagesList />
 
           </div>
         </DataContext.Provider>
