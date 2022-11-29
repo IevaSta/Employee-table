@@ -64,10 +64,26 @@ function TableBody() {
     )
   };
 
+  //nustatome, kiek rodoma irasu puslapyje
+  let notDeletedData = [];
+
+  if (data) {
+    notDeletedData = [...data].filter(e => !e.deleted);
+  }
+
+  let newData = [[]];
+
+  while (notDeletedData.length > 0) {
+    if (newData[newData.length - 1].length < 3) {
+      newData[newData.length - 1].push(notDeletedData.shift());
+    } else {
+      newData = [...newData, [notDeletedData.shift()]];
+    }
+  }
 
   return (
     <tbody className="tbody">
-      {data?.map(e => !e.deleted && (e.focus ? focusEmployee(e) : blurEmployeeDefault(e)))}
+      {newData[0].map(e => e.focus ? focusEmployee(e) : blurEmployeeDefault(e))}
     </tbody>
   );
 }
