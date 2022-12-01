@@ -1,21 +1,70 @@
+import { useContext } from "react";
+import DataContext from "./DataContext";
+
 function TablePagesList() {
+
+    const { pagesList, page, setPage } = useContext(DataContext);
+
+
     return (
         <div>
-            <button>{'<'}</button>
 
+            {page > 1 && <button onClick={() => setPage(p => p - 1)}>{'<'}</button>}
 
             <ul>
-                <li><button>FIRST</button></li>
-                <li>...</li>
-                <li>x</li>
-                <li>X</li>
-                <li>x</li>
-                <li>...</li>
-                <li><button>Last</button></li>
+                {/* 
+                    1          page === 2 
+                    1 2        page === 3
+                    1...3      page > 3
+                */}
+
+                {page === 2 && <li onClick={() => setPage(1)}>1</li>}
+
+                {page === 3 &&
+                    <>
+                        <li onClick={() => setPage(1)}>1</li>
+                        <li onClick={() => setPage(2)}>2</li>
+                    </>
+                }
+
+                {page > 3 &&
+                    <>
+                        <li onClick={() => setPage(1)}>1</li>
+                        <li>...</li>
+                        <li onClick={() => setPage(p => p - 1)}>{page - 1}</li>
+                    </>
+                }
+
+                <li>{page}</li>
+
+                {page < pagesList.length - 2 &&
+                    <>
+                        <li onClick={() => setPage(p => p + 1)}>{page + 1}</li>
+                        <li>...</li>
+                        <li onClick={() => setPage(pagesList.length)}>{pagesList.length}</li>
+                    </>
+                }
+
+                {page === pagesList.length - 2 &&
+                    <>
+                        <li onClick={() => setPage(p => p + 1)}>{page + 1}</li>
+                        <li onClick={() => setPage(p => p + 2)}>{page + 2}</li>
+                    </>
+                }
+
+                {page === pagesList.length - 1 &&
+                    <li onClick={() => setPage(p => p + 1)}>{page + 1}</li>
+                }
+
+                {/* total pages = 10
+                    8...10        page < pagesList.length -2                       // page = 7     
+                    9 10          page === pagesList.length -2                     // page = 8
+                    10            page === pagesList.length -1                     // page = 9
+                */}
             </ul>
 
+            {page < pagesList.length && <button onClick={() => setPage(p => p + 1)}>{'>'}</button>}
 
-            <button>{'>'}</button>
         </div>
     )
 

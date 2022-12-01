@@ -4,7 +4,7 @@ import { cancelEdit_action, checkEmployee_action, deleteEmployee_action, focusEm
 import DataContext from "./DataContext";
 
 function TableBody() {
-  const { data, dispachData, setIsCheck } = useContext(DataContext);
+  const { data, dispachData, setIsCheck, pagesList, page } = useContext(DataContext);
 
   const check = (id, e) => {
     const c = e.target.checked;
@@ -71,19 +71,19 @@ function TableBody() {
     notDeletedData = [...data].filter(e => !e.deleted);
   }
 
-  let newData = [[]];
+
 
   while (notDeletedData.length > 0) {
-    if (newData[newData.length - 1].length < 3) {
-      newData[newData.length - 1].push(notDeletedData.shift());
+    if (pagesList[pagesList.length - 1].length < 3) {
+      pagesList[pagesList.length - 1].push(notDeletedData.shift());
     } else {
-      newData = [...newData, [notDeletedData.shift()]];
+      pagesList.push([notDeletedData.shift()]);
     }
   }
 
   return (
     <tbody className="tbody">
-      {newData[0].map(e => e.focus ? focusEmployee(e) : blurEmployeeDefault(e))}
+      {pagesList[page - 1].map(e => e.focus ? focusEmployee(e) : blurEmployeeDefault(e))}
     </tbody>
   );
 }
