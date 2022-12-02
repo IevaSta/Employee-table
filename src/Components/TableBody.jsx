@@ -1,10 +1,16 @@
 import { useEffect } from "react";
 import { useContext, useState } from "react";
 import { cancelEdit_action, checkEmployee_action, deleteEmployee_action, focusEmployee_action, saveEdit_action } from "../Action/dataActions";
+import { createPagesInList_action } from "../Action/pagesListActions";
 import DataContext from "./DataContext";
 
 function TableBody() {
-  const { data, dispachData, setIsCheck, pagesList, page } = useContext(DataContext);
+  const { data, dispachData, setIsCheck, pagesList, page, dispachPagesList } = useContext(DataContext);
+
+
+  useEffect(() => {
+    dispachPagesList(createPagesInList_action(data))
+  }, [data, dispachPagesList]);
 
   const check = (id, e) => {
     const c = e.target.checked;
@@ -19,6 +25,7 @@ function TableBody() {
   const [age, setAge] = useState('');
   const [city, setCity] = useState('');
 
+  //edit imputu reiksmes
   useEffect(() => {
     if (data?.some(e => e.focus)) {
       const focusedEmployee = [...data].filter(e => e.focus)[0];
@@ -64,26 +71,9 @@ function TableBody() {
     )
   };
 
-  //nustatome, kiek rodoma irasu puslapyje
-  let notDeletedData = [];
-
-  if (data) {
-    notDeletedData = [...data].filter(e => !e.deleted);
-  }
-
-
-
-  while (notDeletedData.length > 0) {
-    if (pagesList[pagesList.length - 1].length < 3) {
-      pagesList[pagesList.length - 1].push(notDeletedData.shift());
-    } else {
-      pagesList.push([notDeletedData.shift()]);
-    }
-  }
-
   return (
     <tbody className="tbody">
-      {pagesList[page - 1].map(e => e.focus ? focusEmployee(e) : blurEmployeeDefault(e))}
+      {pagesList[page - 1]?.map(e => e.focus ? focusEmployee(e) : blurEmployeeDefault(e))}
     </tbody>
   );
 }

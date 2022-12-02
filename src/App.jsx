@@ -8,13 +8,15 @@ import NewData from "./Components/NewData";
 import Table from "./Components/Table";
 import TablePagesList from "./Components/TablePagesList";
 import data_reducer from "./Reducers/dataReducer";
+import pagesList_reducer from "./Reducers/pagesListReducer";
 
 function App() {
   const [data, dispachData] = useReducer(data_reducer, null);
+  const [pagesList, dispachPagesList] = useReducer(pagesList_reducer, [[]]);
+
   const [isCheck, setIsCheck] = useState(false);
   const [page, setPage] = useState(1)
 
-  let pagesList = [[]];
 
   useEffect(() => {
     dispachData(loadData_action());
@@ -32,7 +34,8 @@ function App() {
             setIsCheck,
             pagesList,
             page,
-            setPage
+            setPage,
+            dispachPagesList
           }}
         >
           <div className='card'>

@@ -48,7 +48,8 @@ function data_reducer(state, action) {
             break;
 
         case saveEdit_const:
-            newState = newState?.map(e => e.id === action.payload.id ? { ...e, ...action.payload.data, focus: false } : { ...e })
+            newState = newState?.map(e => e.id === action.payload.id ? { ...e, ...action.payload.data, focus: false } : { ...e });
+            updateDataInLocalStorage(newState);
             break;
 
 
