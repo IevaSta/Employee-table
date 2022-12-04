@@ -1,4 +1,4 @@
-import { addNewEmployee_const, cancelEdit_const, checkEmployee_const, deleteAllSelectedEmployees_const, deleteEmployee_const, focusEmployee_const, loadData_const, saveEdit_const, sortEmployeesByAge_const } from "../Constants/dataConstants";
+import { addNewEmployee_const, cancelEdit_const, checkEmployee_const, deleteAllSelectedEmployees_const, deleteEmployee_const, focusEmployee_const, loadData_const, saveEdit_const } from "../Constants/dataConstants";
 import updateDataInLocalStorage from "../Functions/updateDataInLocalStorage";
 
 function data_reducer(state, action) {
