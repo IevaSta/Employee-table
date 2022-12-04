@@ -15,7 +15,7 @@ function App() {
   const [pagesList, dispachPagesList] = useReducer(pagesList_reducer, [[]]);
 
   const [isCheck, setIsCheck] = useState(false);
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(1);
 
 
   useEffect(() => {
