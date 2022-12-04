@@ -1,4 +1,4 @@
-import { createPagesInList_const } from "../Constants/pagesListConstants";
+import { checkAll_const, createPagesInList_const } from "../Constants/pagesListConstants";
 
 function pagesList_reducer(state, action) {
 
@@ -20,6 +20,10 @@ function pagesList_reducer(state, action) {
                     }
                 }
             }
+            break;
+
+        case checkAll_const:
+            newState[action.payload.page - 1] = newState[action.payload.page - 1]?.map(e => ({ ...e, check: action.payload.isCheck }));
             break;
 
         default:
