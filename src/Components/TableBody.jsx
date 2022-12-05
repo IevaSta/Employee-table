@@ -1,12 +1,15 @@
 import { useEffect } from "react";
 import { useContext, useState } from "react";
-import { cancelEdit_action, checkEmployee_action, deleteEmployee_action, focusEmployee_action, saveEdit_action } from "../Action/dataActions";
-import { createPagesInList_action } from "../Action/pagesListActions";
+import { cancelEdit_action, deleteEmployee_action, focusEmployee_action, saveEdit_action } from "../Action/dataActions";
+import { checkEmployee_action, createPagesInList_action } from "../Action/pagesListActions";
 import DataContext from "./DataContext";
 
 function TableBody() {
   const { data, dispachData, setIsCheck, pagesList, page, dispachPagesList } = useContext(DataContext);
 
+  useEffect(() => {
+    console.log(pagesList[page - 1]);
+  }, [pagesList, page])
 
   useEffect(() => {
     dispachPagesList(createPagesInList_action(data))
@@ -14,7 +17,7 @@ function TableBody() {
 
   const check = (id, e) => {
     const c = e.target.checked;
-    dispachData(checkEmployee_action(id, c));
+    dispachPagesList(checkEmployee_action(id, page, c));
 
     if (!c) {
       setIsCheck(c)

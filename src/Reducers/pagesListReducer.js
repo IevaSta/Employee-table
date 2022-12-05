@@ -1,8 +1,7 @@
-import { checkAll_const, createPagesInList_const } from "../Constants/pagesListConstants";
+import { checkAll_const, checkEmployee_const, createPagesInList_const } from "../Constants/pagesListConstants";
 
 function pagesList_reducer(state, action) {
-
-    let newState = state;
+    let newState = [...state];
 
     switch (action.type) {
         case createPagesInList_const:
@@ -23,10 +22,19 @@ function pagesList_reducer(state, action) {
             break;
 
         case checkAll_const:
-            newState[action.payload.page - 1] = newState[action.payload.page - 1]?.map(e => ({ ...e, check: action.payload.isCheck }));
+            newState[action.payload.page - 1] = newState[action.payload.page - 1]
+                ?.map(e => ({ ...e, check: action.payload.isCheck }));
             break;
 
+        case checkEmployee_const:
+            newState[action.payload.page - 1] = newState[action.payload.page - 1]
+                ?.map(e => e.id === action.payload.id ? { ...e, check: action.payload.isCheck } : { ...e });
+            break;
+
+
+
         default:
+
     }
 
     // switch (action.type) {
@@ -34,7 +42,6 @@ function pagesList_reducer(state, action) {
     //         break;
     //     default:
     // }
-
     return newState;
 }
 
