@@ -1,4 +1,4 @@
-import { checkAll_const, checkEmployee_const, createPagesInList_const } from "../Constants/pagesListConstants";
+import { checkAll_const, checkEmployee_const, createPagesInList_const, focusEmployee_const } from "../Constants/pagesListConstants";
 
 function pagesList_reducer(state, action) {
     let newState = [...state];
@@ -31,7 +31,10 @@ function pagesList_reducer(state, action) {
                 ?.map(e => e.id === action.payload.id ? { ...e, check: action.payload.isCheck } : { ...e });
             break;
 
-
+        case focusEmployee_const:
+            newState[action.payload.page - 1] = newState[action.payload.page - 1]
+                ?.map(e => e.id === action.payload.id ? { ...e, focus: true } : { ...e, focus: false });
+            break;
 
         default:
 

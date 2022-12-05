@@ -1,4 +1,4 @@
-import { addNewEmployee_const, cancelEdit_const, deleteAllSelectedEmployees_const, deleteEmployee_const, focusEmployee_const, loadData_const, saveEdit_const } from "../Constants/dataConstants";
+import { addNewEmployee_const, cancelEdit_const, deleteAllSelectedEmployees_const, deleteEmployee_const, loadData_const, saveEdit_const } from "../Constants/dataConstants";
 import updateDataInLocalStorage from "../Functions/updateDataInLocalStorage";
 
 function data_reducer(state, action) {
@@ -27,10 +27,6 @@ function data_reducer(state, action) {
             updateDataInLocalStorage(newState);
             break;
 
-        case focusEmployee_const:
-            newState = newState?.map(e => e.id === action.payload ? { ...e, focus: true } : { ...e, focus: false })
-            break;
-
         case cancelEdit_const:
             newState = newState?.map(e => ({ ...e, focus: false }));
             break;
@@ -40,8 +36,6 @@ function data_reducer(state, action) {
             updateDataInLocalStorage(newState);
             break;
         default:
-
-            console.log('dataReducer ERROR - case was not defined');
     }
 
     return newState;
