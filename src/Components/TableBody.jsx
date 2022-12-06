@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useContext, useState } from "react";
-import { cancelEdit_action, deleteEmployee_action, saveEdit_action } from "../Action/dataActions";
-import { checkEmployee_action, createPagesInList_action, focusEmployee_action } from "../Action/pagesListActions";
+import { deleteEmployee_action, saveEdit_action } from "../Action/dataActions";
+import { cancelEdit_action, checkEmployee_action, createPagesInList_action, focusEmployee_action } from "../Action/pagesListActions";
 import DataContext from "./DataContext";
 
 function TableBody() {
@@ -49,7 +49,7 @@ function TableBody() {
         </select></td>
         <td>
           <button className="green" onClick={() => dispachData(saveEdit_action(e.id, { name, age, city }))}>Save</button>
-          <button className="yellow" onClick={() => dispachData(cancelEdit_action())}>Cancel</button>
+          <button className="yellow" onClick={() => dispachPagesList(cancelEdit_action(page))}>Cancel</button>
         </td>
       </tr>
     )

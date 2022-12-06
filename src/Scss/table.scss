@@ -2,25 +2,35 @@
     width: 100%;
     border-collapse: collapse;
 
-
     thead {
         color: #f5d376;
         text-transform: uppercase;
         font-size: 20px;
 
-        th {
-            border-bottom: solid 2px #42494f;
-            font-weight: 400;
+
+        tr {
+            th {
+                border-bottom: solid 2px #42494f;
+                font-weight: 400;
+            }
+
+            th:last-child {
+                text-align: center;
+            }
         }
     }
+
+
 
     tbody {
         color: rgb(199, 199, 199);
         font-size: 18px;
 
-        td {
-            font-weight: 400;
-            border-bottom: solid 1px #42494f;
+        tr {
+            td {
+                font-weight: 400;
+                border-bottom: solid 1px #42494f;
+            }
         }
     }
 

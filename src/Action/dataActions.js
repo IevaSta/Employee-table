@@ -1,4 +1,4 @@
-import { addNewEmployee_const, cancelEdit_const, deleteAllSelectedEmployees_const, deleteEmployee_const, loadData_const, saveEdit_const } from "../Constants/dataConstants";
+import { addNewEmployee_const, deleteAllSelectedEmployees_const, deleteEmployee_const, loadData_const, saveEdit_const } from "../Constants/dataConstants";
 
 export function addNewEmployee_action(newData) {
     return {
@@ -23,12 +23,6 @@ export function deleteEmployee_action(id) {
     return {
         type: deleteEmployee_const,
         payload: id
-    }
-}
-
-export function cancelEdit_action() {
-    return {
-        type: cancelEdit_const
     }
 }
 
