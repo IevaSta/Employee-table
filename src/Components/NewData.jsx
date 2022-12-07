@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useContext } from "react";
 import { useRef } from "react";
 import { addNewEmployee_action } from "../Action/dataActions";
@@ -10,6 +11,7 @@ function NewData() {
   const nameRef = useRef();
   const ageRef = useRef();
   const selectRef = useRef();
+  const [alert, setAlert] = useState(false)
 
   const addNewEmployee = () => {
 
@@ -29,34 +31,37 @@ function NewData() {
           check: false,
         })
       );
-
       nameRef.current.value = "";
       ageRef.current.value = "";
       selectRef.current.value = "";
+      setAlert(false);
+    } else {
+      setAlert(true);
     }
   }
 
-
-
   return (
-    <div className="card">
-      <div className="top">
-        <h2>employee table</h2>
+    <>
+      {alert && <div>All fields are required to be filled!</div>}
+      <div className="card">
+        <div className="top">
+          <h2>employee table</h2>
 
-        <div className="form">
-          <input ref={nameRef} type="text" placeholder="Name" onKeyUp={e => e.key === 'Enter' && addNewEmployee()} />
-          <input ref={ageRef} type="number" placeholder="Age" onKeyUp={e => e.key === 'Enter' && addNewEmployee()} />
-          <select ref={selectRef} name="" id="">
-            <option value="">Choose city</option>
-            <option>Vilnius</option>
-            <option>Kaunas</option>
-            <option>Klaipėda</option>
-          </select>
-          <button className='black' onClick={addNewEmployee}>Add employee</button>
+          <div className="form">
+            <input ref={nameRef} type="text" placeholder="Name" onKeyUp={e => e.key === 'Enter' && addNewEmployee()} />
+            <input ref={ageRef} type="number" placeholder="Age" onKeyUp={e => e.key === 'Enter' && addNewEmployee()} />
+            <select ref={selectRef} name="" id="">
+              <option value="">Choose city</option>
+              <option>Vilnius</option>
+              <option>Kaunas</option>
+              <option>Klaipėda</option>
+            </select>
+            <button className='black' onClick={addNewEmployee}>Add employee</button>
+          </div>
+
         </div>
-
       </div>
-    </div>
+    </>
   );
 }
 
