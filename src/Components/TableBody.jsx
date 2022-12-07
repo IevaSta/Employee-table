@@ -40,8 +40,8 @@ function TableBody() {
     return (
       <tr key={e.id}>
         <td><input type="checkbox" onChange={event => check(e.id, event)} checked={e.check}></input></td>
-        <td><input type="text" value={name} onChange={event => setName(event.target.value)} /></td>
-        <td><input type="number" value={age} onChange={event => setAge(event.target.value)} /></td>
+        <td><input type="text" value={name} onChange={event => setName(event.target.value)} onKeyUp={event => event.key === 'Enter' && dispachData(saveEdit_action(e.id, { name, age, city }))} /></td>
+        <td><input type="number" value={age} onChange={event => setAge(event.target.value)} onKeyUp={event => event.key === 'Enter' && dispachData(saveEdit_action(e.id, { name, age, city }))} /></td>
         <td><select value={city} onChange={event => setCity(event.target.value)}>
           <option>Vilnius</option>
           <option>Kaunas</option>
