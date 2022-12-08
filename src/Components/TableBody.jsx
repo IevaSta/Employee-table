@@ -1,11 +1,16 @@
 import { useEffect } from "react";
 import { useContext, useState } from "react";
 import { deleteEmployee_action, saveEdit_action } from "../Action/dataActions";
-import { cancelEdit_action, checkEmployee_action, createPagesInList_action, focusEmployee_action } from "../Action/pagesListActions";
+import { cancelEdit_action, checkAll_action, checkEmployee_action, createPagesInList_action, focusEmployee_action } from "../Action/pagesListActions";
 import DataContext from "./DataContext";
 
 function TableBody() {
   const { data, dispachData, setIsCheck, pagesList, page, dispachPagesList } = useContext(DataContext);
+
+  //atzymim visus irasus, kai atidarome psl
+  useEffect(() => {
+    dispachPagesList(checkAll_action(page, false))
+  }, [page, dispachPagesList]);
 
   useEffect(() => {
     dispachPagesList(createPagesInList_action(data))
