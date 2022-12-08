@@ -50,11 +50,11 @@ function NewData() {
           <div className="form">
             <input ref={nameRef} type="text" placeholder="Name" onKeyUp={e => e.key === 'Enter' && addNewEmployee()} />
             <input ref={ageRef} type="number" placeholder="Age" onKeyUp={e => e.key === 'Enter' && addNewEmployee()} />
-            <select ref={selectRef} name="" id="">
+            <select ref={selectRef}>
               <option value="">Choose city</option>
-              <option>Vilnius</option>
-              <option>Kaunas</option>
-              <option>Klaipėda</option>
+              <option value="Vilnius">Vilnius</option>
+              <option value="Kaunas">Kaunas</option>
+              <option value="Klaipėda">Klaipėda</option>
             </select>
             <button className='black' onClick={addNewEmployee}>Add employee</button>
           </div>
