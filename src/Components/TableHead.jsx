@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useContext, useEffect } from "react";
-import { deleteAllSelectedEmployees_action } from "../Action/dataActions";
+import { deleteAllSelectedEmployees_action, sortEmployees_action } from "../Action/dataActions";
 import { checkAll_action } from "../Action/pagesListActions";
 import DataContext from "./DataContext";
 
@@ -39,15 +39,30 @@ function TableHead() {
 
   }, [isCheck, page, pagesList, setIsCheck]);
 
+  const [lastSort, setlastSort] = useState({ type: '', dir: 0 });
+
+  const sortEmpl = (type) => {
+    if (lastSort.type !== type || !lastSort.dir) {
+      dispachData(sortEmployees_action(type, 1))
+      setlastSort({ type, dir: 1 })
+    } else if (lastSort.type === type && lastSort.dir === 1) {
+      dispachData(sortEmployees_action(type, -1))
+      setlastSort({ type, dir: -1 })
+    } else if (lastSort.type === type && lastSort.dir === -1) {
+      dispachData(sortEmployees_action('id', 1))
+      setlastSort({ type: '', dir: 0 })
+    }
+  }
+
   return (
     <thead className="thead">
       <tr>
         <th>
           <input type="checkbox" onChange={e => { check(e); dispachPagesList(checkAll_action(page, e.target.checked)) }} checked={isCheck} disabled={disabled}></input>
         </th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>City</th>
+        <th onClick={() => sortEmpl('name')}>Name</th>
+        <th onClick={() => sortEmpl('age')}>Age</th>
+        <th onClick={() => sortEmpl('city')}>City</th>
         <th><button className="yellow" onClick={deleteAllChecked}>Delete selected items</button></th>
       </tr>
     </thead>
