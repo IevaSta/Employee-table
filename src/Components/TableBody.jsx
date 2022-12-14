@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useContext, useState } from "react";
 import { deleteEmployee_action, saveEdit_action } from "../Action/dataActions";
 import { cancelEdit_action, checkAll_action, checkEmployee_action, createPagesInList_action, focusEmployee_action } from "../Action/pagesListActions";
+import inputValidation from "../Functions/inputValidation";
 import DataContext from "./DataContext";
 
 function TableBody() {
@@ -9,11 +10,11 @@ function TableBody() {
 
   //atzymim visus irasus, kai atidarome psl
   useEffect(() => {
-    dispachPagesList(checkAll_action(page, false))
+    dispachPagesList(checkAll_action(page, false));
   }, [page, dispachPagesList]);
 
   useEffect(() => {
-    dispachPagesList(createPagesInList_action(data))
+    dispachPagesList(createPagesInList_action(data));
   }, [data, dispachPagesList]);
 
   const check = (id, e) => {
@@ -21,7 +22,7 @@ function TableBody() {
     dispachPagesList(checkEmployee_action(id, page, c));
 
     if (!c) {
-      setIsCheck(c)
+      setIsCheck(c);
     }
   }
 
@@ -37,11 +38,18 @@ function TableBody() {
       setAge(focusedEmployee.age);
       setCity(focusedEmployee.city);
     }
-  }, [page, pagesList])
+  }, [page, pagesList]);
 
+  const editSave = (e) => {
+    const isName = inputValidation('name', name);
+    const isAge = inputValidation('age', age);
 
+    if (isName && isAge && city) {
+      dispachData(saveEdit_action(e.id, { name: isName, age: isAge, city }));
+    }
+  }
 
-  function focusEmployee(e) {
+  const focusEmployee = (e) => {
     return (
       <tr key={e.id}>
         <td><input type="checkbox" onChange={event => check(e.id, event)} checked={e.check}></input></td>
@@ -53,14 +61,14 @@ function TableBody() {
           <option>Klaipėda</option>
         </select></td>
         <td>
-          <button className="green" onClick={() => dispachData(saveEdit_action(e.id, { name, age, city }))}>Save</button>
+          <button className="green" onClick={() => editSave(e)}>Save</button>
           <button className="yellow" onClick={() => dispachPagesList(cancelEdit_action(page))}>Cancel</button>
         </td>
       </tr>
-    )
+    );
   }
 
-  function blurEmployeeDefault(e) {
+  const blurEmployeeDefault = (e) => {
     return (
       <tr key={e.id}>
         <td><input type="checkbox" onChange={event => check(e.id, event)} checked={e.check}></input></td>
@@ -72,8 +80,8 @@ function TableBody() {
           <button className="yellow" onClick={() => dispachData(deleteEmployee_action(e.id))}>Delete</button>
         </td>
       </tr>
-    )
-  };
+    );
+  }
 
   return (
     <tbody className="tbody">
