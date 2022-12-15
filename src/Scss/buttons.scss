@@ -13,6 +13,7 @@ button {
     line-height: 1.25;
     position: relative;
     vertical-align: baseline;
+    text-transform: uppercase;
 
 
 
@@ -35,6 +36,7 @@ button {
 
     &.yellow {
         background-color: #fbdb86;
+        width: 100%;
 
         &:hover,
         &:focus {
@@ -48,6 +50,7 @@ button {
 
     &.green {
         background-color: #b3c963;
+        width: 100%;
 
         &:hover,
         &:focus {
@@ -63,7 +66,6 @@ button {
         background-color: #2e3136;
         width: 100%;
         color: #f5d376;
-        text-transform: uppercase;
         letter-spacing: 3px;
 
         &:hover,

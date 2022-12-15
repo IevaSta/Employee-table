@@ -2,6 +2,7 @@
     width: 100%;
     border-collapse: collapse;
 
+
     thead {
         color: #f5d376;
         text-transform: uppercase;
@@ -12,10 +13,6 @@
             th {
                 border-bottom: solid 2px #42494f;
                 font-weight: 400;
-            }
-
-            th:last-child {
-                text-align: center;
             }
         }
     }
@@ -33,7 +30,8 @@
             }
 
             td:last-child {
-                text-align: center;
+                display: flex;
+                justify-content: space-between;
             }
         }
     }

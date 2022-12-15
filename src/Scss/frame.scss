@@ -1,8 +1,8 @@
 //pagrindiniai konteineriu aprasymai
 
 .container {
-
     width: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 10px;
@@ -18,8 +18,7 @@
     }
 
     .bin {
-        display: flex;
-        width: 100%;
+        width: 50%;
     }
 
     .card {
@@ -40,6 +39,8 @@
         }
 
         .body {
+            display: flex;
+            justify-content: center;
             margin-top: 30px;
             background-color: #2e3136;
             font-size: 20px;
