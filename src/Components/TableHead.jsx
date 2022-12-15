@@ -63,7 +63,7 @@ function TableHead() {
         <th onClick={() => sortEmpl('name')}>Name</th>
         <th onClick={() => sortEmpl('age')}>Age</th>
         <th onClick={() => sortEmpl('city')}>City</th>
-        <th><button className="yellow" onClick={deleteAllChecked}>Delete selected items</button></th>
+        <th><button className="yellow" onClick={deleteAllChecked}>Delete selected</button></th>
       </tr>
     </thead>
   );

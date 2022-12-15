@@ -21,19 +21,6 @@ button {
         transform: translateY(-1px);
     }
 
-    &.blue {
-        background-color: #95f1cc;
-
-        &:hover,
-        &:focus {
-            background-color: #48cac0;
-        }
-
-        &:active {
-            background-color: #2f919e;
-        }
-    }
-
     &.yellow {
         background-color: #fbdb86;
         width: 100%;

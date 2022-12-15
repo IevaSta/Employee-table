@@ -6,7 +6,6 @@
     justify-content: center;
     align-items: center;
     padding-top: 10px;
-    background-color: #13181e;
     color: #42494f;
 
     h2 {
@@ -29,7 +28,6 @@
         flex-direction: column;
 
         .top {
-            background-color: #13181e;
             font-size: 20px;
             font-weight: 400;
             color: #48cac0;
@@ -47,6 +45,17 @@
             color: rgb(199, 199, 199);
             text-align: left;
             width: calc(100% - 46px);
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            ul {
+                display: flex;
+                flex-direction: row;
+            }
         }
     }
 }
