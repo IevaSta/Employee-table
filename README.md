@@ -9,7 +9,7 @@ Site published at: https://ievasta.github.io/crudAgi/
 ## Project features
 
 - Github pages;
-- create form su add new employee;
+- create form where can be added new employee (data: name, age, city);
 - imputs validation adding new employee;
 - error notifications;
 - add new employee by clicking "Enter" button;
