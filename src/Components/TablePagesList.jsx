@@ -36,7 +36,7 @@ function TablePagesList() {
             </div>
 
             <div className="right-footer">
-                {page > 1 && <button onClick={() => setPage(p => p - 1)}>{'<'}</button>}
+                {page > 1 && <button onClick={() => setPage(p => p - 1)}>{'«'}</button>}
 
                 <ul>
                     {/* 
@@ -90,7 +90,7 @@ function TablePagesList() {
                 */}
                 </ul>
 
-                {page < pagesList.length && <button onClick={() => setPage(p => p + 1)}>{'>'}</button>}
+                {page < pagesList.length && <button onClick={() => setPage(p => p + 1)}>{'»'}</button>}
             </div>
 
         </div>
