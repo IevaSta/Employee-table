@@ -48,13 +48,38 @@
         }
 
         .footer {
+            position: sticky;
+            width: calc(100% - 46px);
+            padding-top: 30px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
 
-            ul {
+            .left-footer {
+                >label {
+                    color: rgb(199, 199, 199);
+                    padding-right: 15px;
+                }
+            }
+
+            .right-footer {
                 display: flex;
-                flex-direction: row;
+
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    list-style-type: none;
+                    color: rgb(199, 199, 199);
+
+                    .current-page {
+                        color: #b3c963;
+                        font-size: 24px;
+                        border-bottom: 1px solid #b3c963;
+                        margin: 0 10px;
+                    }
+                }
             }
         }
     }
